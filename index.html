@@ -1,8 +1,74 @@
 <!DOCTYPE html>
-<html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+  <title>My responsive web page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+	$(document).ready(function(){
+	  $("#myBtn").click(function(){
+	  		  	document.getElementById("text").innerHTML="Hello "+document.getElementById("variable").value; 
+	  	$("#myModal").modal();
+
+	  });
+	});
+	</script>
+</head>
 <body>
-
-
+<div class="container">
+  <div class="jumbotron">
+    <h1>This is an example using bootstrap to use responsive divs with a responsive javascript form,images and text within them</h1>
+    <p>Resize this responsive page to see the effect!</p> 
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Column 1</h3>
+      <form method="post">
+		  <input required="true" type="text" name="fname" class="form-control" placeholder="Enter your name" style="max-width:50%;height:auto;" id="variable">
+		  <br>
+		  <button type="button" class="btn btn-info btn-lg" id="myBtn">Open Modal</button>
+		</form>
+			<!-- Modal -->
+		  <div class="modal fade" id="myModal" role="dialog">
+		    <div class="modal-dialog">
+		    
+		      <!-- Modal content-->
+		      <div class="modal-content">
+		        <div class="modal-header">
+		          <button type="button" class="close" data-dismiss="modal">&times;</button>
+		          <h4 class="modal-title">Modal Header</h4>
+		        </div>
+		        <div class="modal-body">
+		          
+		          <div id="text"></div>
+		        </div>
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 2</h3>
+      <p>This images will always scale down but never scale up because their max with is the 50% of the container</p>
+      <p>These images depend of the screen size. This is achieved with media queries.</p>
+		<picture>
+		  <source srcset="9lpR5bGUoEw.jpeg" media="(min-width: 1024px)" style="max-width:50%;height:auto;">
+		  <source srcset="Fx2-X1tYYQo.jpeg" media="(min-width: 512px)" style="max-width:50%;height:auto;">
+		  <source srcset="EwnkEPhVym4.jpeg" media="(min-width: 256px)" style="max-width:50%;height:auto;">
+		  <source srcset="f9dTXCIkUS4.jpeg" media="(min-width: 128px)"style="max-width:50%;height:auto;">
+		  <img src="6A8g3zOpZt0.jpeg" alt="Woman" style="max-width:50%;height:auto;">
+		</picture>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 3</h3>        
+      <h1 style="font-size:5vw">This text resizes according to the size of the screen</h1>
+    </div>
+  </div>
+</div>
 </body>
 </html>
